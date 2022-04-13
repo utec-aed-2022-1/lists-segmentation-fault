@@ -20,11 +20,11 @@ class DoubleList : public List<T> {
         }
 
        T front(){
-            return head;
+            return *head;
         }
 
         T back(){
-            return tail;
+            return *tail;
         }
 
         void push_front(T data){
@@ -73,7 +73,7 @@ class DoubleList : public List<T> {
 
         T& operator[](int pos){
           if(pos >= size()) throw "index out of range";
-          Node<T> temp = head;
+          Node<T>* temp = head;
           int i = 0; while(i++ < pos - 1) temp = temp->next;
           return temp->data;
         }
